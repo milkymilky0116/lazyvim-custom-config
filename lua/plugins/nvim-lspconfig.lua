@@ -36,6 +36,13 @@ return {
             end,
             desc = "Hover Actions (Rust)",
           },
+          {
+            "<leader>cE",
+            function()
+              vim.cmd.RustLsp({ "explainError" })
+            end,
+            desc = "Explain Error (Rust)",
+          },
         },
         settings = {
           ["rust-analyzer"] = {
