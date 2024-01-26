@@ -2,11 +2,41 @@ return {
   "neovim/nvim-lspconfig",
   opts = {
     servers = {
+      tsserver = {
+        keys = {
+          {
+            "<leader>tco",
+            function()
+              vim.lsp.buf.code_action({
+                apply = true,
+                context = {
+                  only = { "source.organizeImports.ts" },
+                  diagnostics = {},
+                },
+              })
+            end,
+            desc = "Organize Imports",
+          },
+          {
+            "<leader>tcR",
+            function()
+              vim.lsp.buf.code_action({
+                apply = true,
+                context = {
+                  only = { "source.removeUnused.ts" },
+                  diagnostics = {},
+                },
+              })
+            end,
+            desc = "Remove Unused Imports",
+          },
+        },
+      },
       pyright = {},
       ruff_lsp = {
         keys = {
           {
-            "<leader>co",
+            "<leader>pco",
             function()
               vim.lsp.buf.code_action({
                 apply = true,
